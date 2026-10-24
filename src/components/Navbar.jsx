@@ -1,5 +1,5 @@
 import React from 'react'
-import { Coffee, ShieldAlert } from 'lucide-react'
+import { Coffee } from 'lucide-react'
 
 export default function Navbar() {
   return (
@@ -15,6 +15,7 @@ export default function Navbar() {
           <a href="#anggota" className="text-xs text-[#86868b] hover:text-[#f5f5f7] transition-colors">Anggota</a>
           <a href="#filosofi" className="text-xs text-[#86868b] hover:text-[#f5f5f7] transition-colors">Filosofi</a>
           <a href="#semboyan" className="text-xs text-[#86868b] hover:text-[#f5f5f7] transition-colors">Semboyan</a>
+          <a href="#komentar" className="text-xs text-[#86868b] hover:text-[#f5f5f7] transition-colors">Buku Tamu</a>
         </nav>
 
         <div className="flex items-center gap-2 text-[11px] font-medium text-[#86868b] border border-white/[0.1] px-2.5 py-0.5 rounded-full">

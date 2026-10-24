@@ -6,6 +6,7 @@ import MediaShowcase from './components/MediaShowcase'
 import StatsGrid from './components/StatsGrid'
 import RosterSection from './components/RosterSection'
 import PhilosophySection from './components/PhilosophySection'
+import GuestbookSection from './components/GuestbookSection'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
           <StatsGrid />
           <RosterSection />
           <PhilosophySection />
+          <GuestbookSection />
         </main>
       </div>
       <Footer />

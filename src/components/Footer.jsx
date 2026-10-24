@@ -19,7 +19,7 @@ export default function Footer() {
           <span>&rsaquo;</span>
           <a href="#ikhtisar" className="text-[#86868b] hover:text-white transition-colors">Sang Oposisi</a>
           <span>&rsaquo;</span>
-          <span className="text-[#f5f5f7]">Profil Resmi</span>
+          <span className="text-[#f5f5f7]">Buku Tamu</span>
         </div>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
@@ -31,6 +31,7 @@ export default function Footer() {
             <a href="#ikhtisar" className="hover:text-white transition-colors">Ikhtisar</a>
             <a href="#anggota" className="hover:text-white transition-colors">Anggota</a>
             <a href="#filosofi" className="hover:text-white transition-colors">Kisah</a>
+            <a href="#komentar" className="hover:text-white transition-colors">Buku Tamu</a>
             <a href="#top" className="inline-flex items-center gap-1 text-[#2997ff] hover:underline">
               <span>Ke Atas</span>
               <ChevronUp className="w-3.5 h-3.5" />
