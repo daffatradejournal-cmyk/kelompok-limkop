@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelompok Limkop — Sang Oposisi</title>
+    <!-- SF Pro style typography using Inter with Apple letter-spacing metrics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Apple Cupertino Design System Tokens */
+        :root {
+            --apple-bg: #000000;
+            --apple-surface: #161617;
+            --apple-surface-elevated: #1d1d1f;
+            --apple-surface-hover: #242426;
+            --apple-border: rgba(255, 255, 255, 0.08);
+            --apple-border-strong: rgba(255, 255, 255, 0.16);
+            --apple-text: #f5f5f7;
+            --apple-text-secondary: #86868b;
+            --apple-text-tertiary: #6e6e73;
+            --apple-blue: #2997ff;
+            --apple-blue-hover: #0077ed;
+            --apple-btn-bg: #0071e3;
+            --apple-btn-hover: #0077ed;
+            --apple-red: #ff375f;
+            --apple-nav-bg: rgba(0, 0, 0, 0.8);
+            --font-apple: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --radius-pill: 980px;
+            --radius-card: 28px;
+            --radius-card-sm: 20px;
+            --transition-apple: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--apple-bg);
+            color: var(--apple-text);
+            font-family: var(--font-apple);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.47059;
+            letter-spacing: -0.022em;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: rgba(41, 151, 255, 0.35);
+            color: #ffffff;
+        }
+
+        /* 1. Global Navigation Bar (Apple.com translucent sticky header) */
+        .apple-nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            height: 44px;
+            background: var(--apple-nav-bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--apple-border);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-content {
+            width: 100%;
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--apple-text);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-brand:hover {
+            opacity: 0.75;
+        }
+
+        .nav-brand i {
+            font-size: 15px;
+            color: var(--apple-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--apple-text-secondary);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--apple-text);
+        }
+
+        .nav-tag {
+            font-size: 11px;
+            color: var(--apple-text-tertiary);
+            font-weight: 500;
+            border: 1px solid var(--apple-border);
+            padding: 2px 8px;
+            border-radius: var(--radius-pill);
+        }
+
+        /* 2. Sub-Nav Ribbons (Apple Keynote Announcement ribbon) */
+        .ribbon-banner {
+            background: #111113;
+            border-bottom: 1px solid var(--apple-border);
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 13px;
+            color: var(--apple-text-secondary);
+        }
+
+        .ribbon-banner a {
+            color: var(--apple-blue);
+            text-decoration: none;
+            margin-left: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .ribbon-banner a:hover {
+            text-decoration: underline;
+        }
+
+        /* 3. Hero Section (Apple Pro Keynote Style) */
+        .hero {
+            padding: 80px 20px 60px;
+            text-align: center;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--apple-blue);
+            letter-spacing: -0.015em;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .hero-headline {
+            font-size: clamp(3.2rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.035em;
+            color: var(--apple-text);
+            margin-bottom: 16px;
+        }
+
+        .hero-headline span.gradient-text {
+            background: linear-gradient(180deg, #ffffff 40%, #86868b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subhead {
+            font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+            line-height: 1.35;
+            color: var(--apple-text-secondary);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            max-width: 680px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .btn-apple-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--apple-btn-bg);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 22px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            transition: var(--transition-apple);
+        }
+
+        .btn-apple-primary:hover {
+            background: var(--apple-btn-hover);
+            transform: scale(1.02);
+        }
+
+        .link-apple {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--apple-blue);
+            font-size: 16px;
+            font-weight: 400;
+            text-decoration: none;
+            letter-spacing: -0.015em;
+        }
+
+        .link-apple i {
+            font-size: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .link-apple:hover {
+            text-decoration: underline;
+        }
+
+        .link-apple:hover i {
+            transform: translateX(3px);
+        }
+
+        /* 4. Giant Hero Media Canvas */
+        .hero-media-wrapper {
+            max-width: 1120px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+        }
+
+        .hero-media-card {
+            background: var(--apple-surface);
+            border-radius: var(--radius-card);
+            border: 1px solid var(--apple-border);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-img-container {
+            width: 100%;
+            height: clamp(380px, 55vw, 620px);
+            position: relative;
+            background: #000;
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .hero-media-card:hover .hero-img-container img {
+            transform: scale(1.02);
+        }
+
+        .hero-img-vignette {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.85) 100%);
+            pointer-events: none;
+        }
+
+        .hero-caption-bar {
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            background: var(--apple-surface);
+            border-top: 1px solid var(--apple-border);
+        }
+
+        .caption-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .caption-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--apple-text);
+        }
+
+        .caption-desc {
+            font-size: 13px;
+            color: var(--apple-text-secondary);
+        }
+
+        .caption-pill {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--apple-text);
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--apple-border);
+        }
+
+        /* 5. Apple Stats Grid (Inspired by Apple Silicon chip performance metrics) */
+        .stats-section {
+            max-width: 1024px;
+            margin: 0 auto 120px;
+            padding: 0 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--apple-surface);
+            border: 1px solid var(--apple-border);
+            border-radius: var(--radius-card-sm);
+            padding: 36px 28px;
+            text-align: center;
+            transition: var(--transition-apple);
+        }
+
+        .stat-card:hover {
+            border-color: var(--apple-border-strong);
+            background: var(--apple-surface-elevated);
+        }
+
+        .stat-number {
+            font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, #ffffff 40%, #86868b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--apple-text);
+            margin-bottom: 4px;
+        }
+
+        .stat-sub {
+            font-size: 13px;
+            color: var(--apple-text-secondary);
+        }
+
+        /* 6. Section Header (Apple Style: Left-aligned, quiet, clean) */
+        .section-container {
+            max-width: 1024px;
+            margin: 0 auto 120px;
+            padding: 0 20px;
+        }
+
+        .apple-section-header {
+            margin-bottom: 48px;
+        }
+
+        .apple-eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--apple-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .apple-section-title {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--apple-text);
+            margin-bottom: 12px;
+        }
+
+        .apple-section-desc {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--apple-text-secondary);
+            max-width: 620px;
+            line-height: 1.45;
+        }
+
+        /* 7. Members Bento Grid (Apple "Compare Models" & Feature Card Style) */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .bento-card {
+            background: var(--apple-surface);
+            border: 1px solid var(--apple-border);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition-apple);
+            position: relative;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--apple-border-strong);
+            background: var(--apple-surface-elevated);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .bento-photo-wrapper {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background: #0d0d0e;
+        }
+
+        .bento-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .bento-card:hover .bento-photo-wrapper img {
+            transform: scale(1.04);
+        }
+
+        .bento-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(22, 22, 23, 0) 55%, var(--apple-surface) 100%);
+            pointer-events: none;
+            transition: var(--transition-apple);
+        }
+
+        .bento-card:hover .bento-gradient {
+            background: linear-gradient(180deg, rgba(29, 29, 31, 0) 55%, var(--apple-surface-elevated) 100%);
+        }
+
+        .bento-content {
+            padding: 24px 28px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .bento-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .bento-badge {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--apple-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .bento-name {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--apple-text);
+        }
+
+        .bento-alias {
+            font-size: 13px;
+            color: var(--apple-text-secondary);
+            font-weight: 400;
+        }
+
+        .bento-footer {
+            border-top: 1px solid var(--apple-border);
+            padding-top: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bento-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--apple-text);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            transition: var(--transition-apple);
+            border: 1px solid var(--apple-border);
+        }
+
+        .bento-btn i.fa-instagram {
+            font-size: 14px;
+            color: var(--apple-red);
+        }
+
+        .bento-btn:hover {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+
+        /* 8. Story Section (Apple Values / Environmental Report format) */
+        .story-card-apple {
+            background: var(--apple-surface);
+            border: 1px solid var(--apple-border);
+            border-radius: var(--radius-card);
+            padding: clamp(36px, 6vw, 64px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .story-lead-quote {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: var(--apple-text);
+        }
+
+        .story-lead-quote span {
+            color: var(--apple-text-secondary);
+        }
+
+        .story-body-paragraphs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--apple-text-secondary);
+        }
+
+        .story-body-paragraphs strong {
+            color: var(--apple-text);
+            font-weight: 600;
+        }
+
+        .story-highlight-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            background: rgba(41, 151, 255, 0.08);
+            border: 1px solid rgba(41, 151, 255, 0.2);
+            border-radius: 14px;
+            color: var(--apple-text);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .story-highlight-pill i {
+            color: var(--apple-blue);
+        }
+
+        /* 9. Apple Signature Footer */
+        .apple-footer {
+            background: #111113;
+            border-top: 1px solid var(--apple-border);
+            padding: 40px 20px 50px;
+            font-size: 12px;
+            color: var(--apple-text-secondary);
+            line-height: 1.45;
+        }
+
+        .footer-content {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        .footer-notes {
+            border-bottom: 1px solid var(--apple-border);
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            font-size: 12px;
+        }
+
+        .footer-breadcrumbs a {
+            color: var(--apple-text);
+            text-decoration: none;
+        }
+
+        .footer-breadcrumbs span {
+            color: var(--apple-text-tertiary);
+        }
+
+        .footer-legal-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding-top: 16px;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: var(--apple-text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .legal-links a:hover {
+            color: var(--apple-text);
+            text-decoration: underline;
+        }
+
+        /* Responsive Architecture */
+        @media (max-width: 900px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                max-width: 440px;
+                margin: 0 auto;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                max-width: 440px;
+                margin: 0 auto;
+            }
+
+            .story-card-apple {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Apple Global Navigation -->
+    <header class="apple-nav">
+        <div class="nav-content">
+            <a href="#top" class="nav-brand">
+                <i class="fa-solid fa-mug-hot"></i>
+                <span>Limkop</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#ikhtisar">Ikhtisar</a></li>
+                <li><a href="#anggota">Anggota</a></li>
+                <li><a href="#filosofi">Filosofi</a></li>
+                <li><a href="#semboyan">Semboyan</a></li>
+            </ul>
+            <div class="nav-tag">Sang Oposisi</div>
+        </div>
+    </header>
+
+    <!-- 2. Apple Ribbon Notice -->
+    <div class="ribbon-banner">
+        <span>Arsip Resmi Kelompok Limkop 2026. Lahir dari meja Warkop Lima Kopi.</span>
+        <a href="#filosofi">Baca Kisah Kami <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i></a>
+    </div>
+
+    <!-- 3. Keynote Hero Section -->
+    <main id="top">
+        <section class="hero" id="ikhtisar">
+            <span class="hero-eyebrow">Profil Resmi Tim</span>
+            <h1 class="hero-headline">
+                <span class="gradient-text">Kelompok Limkop.</span><br>
+                Sang Oposisi.
+            </h1>
+            <p class="hero-subhead">
+                Independen. Kritis. Tetap Teguh Berdiri.<br>
+                Ide-ide besar yang berakar dari kebersamaan tiga pemikir di meja kopi.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#anggota" class="btn-apple-primary">Kenali Rekan Tim</a>
+                <a href="#filosofi" class="link-apple">
+                    <span>Pelajari Filosofi Kami</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 4. Hero Media Canvas (Group Photo) -->
+        <section class="hero-media-wrapper" id="semboyan">
+            <div class="hero-media-card">
+                <div class="hero-img-container">
+                    <img src="image/empat.jpeg" alt="Foto Resmi Rekan Tim Kelompok Limkop" onerror="this.src='empat.jpeg'">
+                    <div class="hero-img-vignette"></div>
+                </div>
+                <div class="hero-caption-bar">
+                    <div class="caption-left">
+                        <div class="caption-title">Semboyan Oposisi</div>
+                        <div class="caption-desc">"Hadir dengan independensi, kesolidan, dan keberanian menyampaikan sudut pandang kritis serta gagasan solutif."</div>
+                    </div>
+                    <div class="caption-pill">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--apple-blue); margin-right: 6px;"></i> Tim Solid
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Apple Stats Grid (Cupertino Metrics) -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-title">Rekan Pemikir</div>
+                    <div class="stat-sub">Satu tujuan kolektif</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-title">Independensi Berpikir</div>
+                    <div class="stat-sub">Bebas dari kompromi semu</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">&infin;</div>
+                    <div class="stat-title">Warkop Lima Kopi</div>
+                    <div class="stat-sub">Pusat lahirnya gagasan</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Members Bento Showcase -->
+        <section class="section-container" id="anggota">
+            <div class="apple-section-header">
+                <div class="apple-eyebrow">Dewan Rekan</div>
+                <h2 class="apple-section-title">Kenali Setiap Karakter.</h2>
+                <p class="apple-section-desc">Tiga kepribadian yang berbeda, disatukan oleh komitmen berpikir kritis dan integritas yang sama.</p>
+            </div>
+
+            <div class="bento-grid">
+                
+                <!-- Member 1: Muhammad Daffa -->
+                <article class="bento-card">
+                    <div class="bento-photo-wrapper">
+                        <img src="image/satu.jpg" alt="Muhammad Daffa" onerror="this.src='satu.jpg'">
+                        <div class="bento-gradient"></div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-meta">
+                            <span class="bento-badge">Rekan Limkop</span>
+                            <h3 class="bento-name">Muhammad Daffa</h3>
+                            <span class="bento-alias">Inisiator Gagasan</span>
+                        </div>
+                        <div class="bento-footer">
+                            <a href="https://instagram.com/dffaaaaa6" target="_blank" rel="noopener noreferrer" class="bento-btn">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>@dffaaaaa6</span>
+                            </a>
+                            <span style="font-size: 11px; color: var(--apple-text-tertiary);">01</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Member 2: Hendrawan (Enda) -->
+                <article class="bento-card">
+                    <div class="bento-photo-wrapper">
+                        <img src="image/dua.jpeg" alt="Hendrawan A.K.A Enda" onerror="this.src='dua.jpeg'">
+                        <div class="bento-gradient"></div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-meta">
+                            <span class="bento-badge">Rekan Limkop</span>
+                            <h3 class="bento-name">Hendrawan</h3>
+                            <span class="bento-alias">Dikenal sebagai Enda</span>
+                        </div>
+                        <div class="bento-footer">
+                            <a href="https://instagram.com/endoo_____" target="_blank" rel="noopener noreferrer" class="bento-btn">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>@endoo_____</span>
+                            </a>
+                            <span style="font-size: 11px; color: var(--apple-text-tertiary);">02</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Member 3: M Syahrul Kamal -->
+                <article class="bento-card">
+                    <div class="bento-photo-wrapper">
+                        <img src="image/tiga.JPG" alt="M Syahrul Kamal" onerror="this.src='tiga.JPG'">
+                        <div class="bento-gradient"></div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-meta">
+                            <span class="bento-badge">Rekan Limkop</span>
+                            <h3 class="bento-name">M Syahrul Kamal</h3>
+                            <span class="bento-alias">Penyelaras Visi</span>
+                        </div>
+                        <div class="bento-footer">
+                            <a href="https://instagram.com/ammaaaaal_" target="_blank" rel="noopener noreferrer" class="bento-btn">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>@ammaaaaal_</span>
+                            </a>
+                            <span style="font-size: 11px; color: var(--apple-text-tertiary);">03</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 7. Apple Values / Origin Story -->
+        <section class="section-container" id="filosofi">
+            <div class="apple-section-header">
+                <div class="apple-eyebrow">Asal-Usul &amp; Visi</div>
+                <h2 class="apple-section-title">Warkop Lima Kopi.</h2>
+                <p class="apple-section-desc">Bagaimana sebuah warkop sederhana menjadi fondasi nama dan semangat tim kami.</p>
+            </div>
+
+            <div class="story-card-apple">
+                <div class="story-lead-quote">
+                    Bukan sekadar tempat ngopi.<br>
+                    <span>Tempat lahirnya kesolidan dan sudut pandang baru.</span>
+                </div>
+                <div class="story-body-paragraphs">
+                    <p>
+                        Nama <strong>"Kelompok Limkop"</strong> berasal dari kebiasaan kami bertiga yang sering berkumpul, duduk ngopi bersama, tertawa riang, serta menyelesaikan berbagai tugas bersama di warkop <strong>Lima Kopi</strong> (disingkat <strong>Limkop</strong>).
+                    </p>
+                    <p>
+                        Di sanalah ide-ide kritis dan semangat kebersamaan kami terbangun, membentuk kami menjadi tim yang solid dengan prinsip dan pandangan yang teguh sebagai kelompok <strong>Oposisi</strong>.
+                    </p>
+                    <div class="story-highlight-pill">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <span>"Menyuarakan apa yang perlu diuji. Mengusulkan apa yang menjadi solusi."</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 8. Apple Global Legal Footer -->
+    <footer class="apple-footer">
+        <div class="footer-content">
+            <div class="footer-notes">
+                <p>1. Nama "Limkop" adalah akronim autentik dari warkop "Lima Kopi", lokasi berkumpul dan berdiskusi tim.</p>
+                <p>2. "Sang Oposisi" dimaknai sebagai komitmen intelektual terhadap kejujuran berpikir, independensi pandangan, dan kritik yang konstruktif.</p>
+            </div>
+
+            <div class="footer-breadcrumbs">
+                <a href="#top"><i class="fa-solid fa-mug-hot"></i></a>
+                <span>&rsaquo;</span>
+                <a href="#top">Kelompok Limkop</a>
+                <span>&rsaquo;</span>
+                <a href="#ikhtisar">Sang Oposisi</a>
+                <span>&rsaquo;</span>
+                <span>Profil Resmi</span>
+            </div>
+
+            <div class="footer-legal-bar">
+                <div class="legal-copyright">
+                    Hak Cipta &copy; 2026 Kelompok Limkop. Seluruh hak cipta dilindungi undang-undang.
+                </div>
+                <div class="legal-links">
+                    <a href="#ikhtisar">Ikhtisar</a>
+                    <a href="#anggota">Anggota</a>
+                    <a href="#filosofi">Kisah</a>
+                    <a href="#top">Kembali ke Atas</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
